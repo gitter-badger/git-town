@@ -13,13 +13,13 @@ end
 # Returns a table of all files in all branches.
 # This is for comparing against expected files in a Cucumber table.
 def files_in_branches
-  result = [%w(BRANCH NAME CONTENT)]
+  result = Mortadella.new headers: %w(BRANCH NAME CONTENT), dry: ['BRANCH']
   existing_local_branches(order: :main_first).each do |branch|
     files_in(branch: branch).each do |file|
       result << [branch, file, content_of(file: file, for_sha: branch)]
     end
   end
-  result
+  result.table
 end
 
 
