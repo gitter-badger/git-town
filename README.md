@@ -20,15 +20,26 @@ and the [tutorial](documentation/tutorial.md) to get an idea for how it works.
 
 Git Town provides these additional Git commands:
 
-* [git extract](/documentation/commands/git-extract.md) - copy selected commits from the current branch into their own branch
+**Creating new feature branches**
 * [git hack](/documentation/commands/git-hack.md) - cut a new feature branch off the main branch
-* [git kill](/documentation/commands/git-kill.md) - remove an obsolete feature branch
-* [git prune-branches](/documentation/commands/git-prune-branches.md) - delete merged branches
-* [git pull-request](/documentation/commands/git-pull-request.md) - create a new pull request
-* [git repo](/documentation/commands/git-repo.md) - view the repository homepage
-* [git ship](/documentation/commands/git-ship.md) - deliver a completed feature branch
+* [git extract](/documentation/commands/git-extract.md) - copy selected commits from the current branch into their own branch
+
+**Staying in sync with the main development branch**
 * [git sync](/documentation/commands/git-sync.md) - update the current branch with all relevant changes
 * [git sync-fork](/documentation/commands/git-sync-fork.md) - pull upstream updates into a forked repository
+
+**Interacting with Bitbucket/Github**
+* [git pull-request](/documentation/commands/git-pull-request.md) - create a new pull request
+* [git repo](/documentation/commands/git-repo.md) - view the repository homepage
+
+**Merging a feature branch**
+* [git ship](/documentation/commands/git-ship.md) - deliver a completed feature branch
+
+**Cleaning up old feature branches**
+* [git kill](/documentation/commands/git-kill.md) - remove an obsolete feature branch
+* [git prune-branches](/documentation/commands/git-prune-branches.md) - delete merged branches
+
+**Help and Configuration**
 * [git town](/documentation/commands/git-town.md) - general Git Town help, view and change Git Town configuration
 
 
