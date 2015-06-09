@@ -13,13 +13,11 @@ function echo_bold {
 }
 
 
-function echo_cyan {
-  echo "$(tput setaf 6)$*$(tput setaf 0)"
-}
-
-
-function echo_cyan_bold {
-  echo_cyan "$(echo_bold "$*")"
+function echo_n_cyan_bold {
+  output_style_cyan
+  output_style_bold
+  echo -n $*
+  output_style_reset
 }
 
 
@@ -37,7 +35,7 @@ function echo_header {
 
 # Prints an error header into the terminal.
 function echo_error_header {
-  local str=$(echo_indented Error)
+  local str=$(echo_indented "Error")
   echo
   echo_red_bold "$str"
 }
@@ -96,7 +94,7 @@ function echo_inline_usage_or {
 # Outputs the given text in red
 function echo_red {
   output_style_red
-  echo "$*"
+  echo $*
   output_style_reset
 }
 
@@ -105,7 +103,14 @@ function echo_red {
 function echo_red_bold {
   output_style_bold
   output_style_red
-  echo "$*"
+  echo $*
+  output_style_reset
+}
+
+function echo_n_red_bold {
+  output_style_red
+  output_style_bold
+  echo -n $*
   output_style_reset
 }
 
@@ -154,6 +159,11 @@ function indent {
 
 function output_style_bold {
   tput bold
+}
+
+
+function output_style_cyan {
+  tput setaf 6
 }
 
 
