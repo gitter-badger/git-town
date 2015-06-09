@@ -134,6 +134,8 @@ Use the [git town](/documentation/commands/git-town.md) command to view or updat
 
 ## Documentation
 
+* [branching model](documentation/branching_model.md)
+
 In addition to the online documentation here,
 you can run `git town` on the command line for an overview of the Git Town commands,
 or `git help <command>` (e.g. `git help sync`) for help with an individual command.
