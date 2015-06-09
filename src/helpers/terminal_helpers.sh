@@ -21,8 +21,10 @@ function echo_n_cyan_bold {
 }
 
 
-function echo_dim {
-  echo "$(tput dim)$*$(tput sgr0)"
+function echo_n_dim {
+  output_style_dim
+  echo -n $*
+  output_style_reset
 }
 
 
@@ -35,16 +37,14 @@ function echo_header {
 
 # Prints an error header into the terminal.
 function echo_error_header {
-  local str=$(echo_indented "Error")
   echo
-  echo_red_bold "$str"
+  echo_red_bold "$(echo_indented 'Error')"
 }
 
 
 # Prints the provided error message
 function echo_error {
-  local str=$(echo_indented "$*")
-  echo_red "$str"
+  echo_red "$(echo_indented $*)"
 }
 
 
@@ -164,6 +164,11 @@ function output_style_bold {
 
 function output_style_cyan {
   tput setaf 6
+}
+
+
+function output_style_dim {
+  tput dim
 }
 
 
