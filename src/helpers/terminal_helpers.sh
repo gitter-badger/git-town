@@ -13,6 +13,21 @@ function echo_bold {
 }
 
 
+function echo_cyan {
+  echo "$(tput setaf 6)$*$(tput setaf 0)"
+}
+
+
+function echo_cyan_bold {
+  echo_cyan "$(echo_bold "$*")"
+}
+
+
+function echo_dim {
+  echo "$(tput dim)$*$(tput sgr0)"
+}
+
+
 # Prints a header line into the terminal.
 function echo_header {
   echo
