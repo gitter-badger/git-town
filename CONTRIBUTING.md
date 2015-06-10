@@ -151,25 +151,27 @@ the appropriate driver for the current environment and runs it.
 Feature branches can be children of other feature branches.
 In order to sync and ship branches in the right order and according to their dependencies,
 Git Town needs to know information about the branch hierarchy.
-Lets assume a repo has this setup:
+Lets assume a repo has the following setup:
 
 ```
--o--o-- main
+-o--o-- master
   \
    o--o--o-- feature1
        \
         o-- feature2
 ```
 
-This information is stored in the Git configuration for the current repo.
-Git Town stores two types of keys in the Git config. The first key is `git-town.branches.parent`
-* `git-town.branches.parent.feature2=feature1`
-* `git-town.branches.parent.feature1=master`
-It lists which branch the immediate parent branch of the given branch is.
+The feature branch `feature1` is cut directly from `master`.
+The other feature branch (`feature2`) is cut from `feature1`.
 
-Git Town also caches the full ancestral hierarchy of each feature branch, top-down:
+Git Town stores the information about this setup is stored in the Git configuration for the repo.
+Two types of keys are used for this. The first one is `git-town.branches.parent`
+* `git-town.branches.parent.feature1=master`
+* `git-town.branches.parent.feature2=feature1`
+It lists which branch is the immediate parent branch of the given branch.
+
+Git Town also caches the full ancestral line of each feature branch, top-down:
 * `git-town.branches.parents.feature2=master,feature1`
-* `git-town.branches.parents.feature1=master`
 Here we list that in order to sync `feature2`, we need to first sync `master`,
 and then `feature1` with `master` as the parent.
 
