@@ -166,7 +166,7 @@ As an example, lets assume a repo with the following setup:
 ```
 
 In this example, feature 1 (which was cut straight from `master`) is currently under review.
-While waiting for that to finish, the developer has started to work on feature 2.
+While waiting for that review to finish, the developer has started to work on feature 2.
 Feature 2 needs some of the changes that are introduced by feature 1.
 Since feature 1 hasn't shipped yet, we can't cut feature 2 straight off master,
 but must cut it off feature 1, so that `feature2` sees the changes made by `feature1`.
