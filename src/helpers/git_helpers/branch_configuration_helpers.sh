@@ -1,3 +1,6 @@
+#!/usr/bin/env bash
+
+
 # Helper methods for managing the configuration of which branches
 # are cut from which ones
 
@@ -20,6 +23,7 @@ function compile_parent_branches {
   done
 
   # truncate the trailing comma
+  # shellcheck disable=SC2001
   all_parent_branches=$(echo "$all_parent_branches" | sed 's/,$//')
 
   # save the result into the configuration

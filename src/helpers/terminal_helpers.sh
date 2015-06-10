@@ -8,7 +8,7 @@ shopt -s extglob
 # Prints a line in bold
 function echo_bold {
   output_style_bold
-  echo "$*"
+  echo "$@"
   output_style_reset
 }
 
@@ -16,14 +16,14 @@ function echo_bold {
 function echo_n_cyan_bold {
   output_style_cyan
   output_style_bold
-  echo -n $*
+  echo -n "$@"
   output_style_reset
 }
 
 
 function echo_n_dim {
   output_style_dim
-  echo -n $*
+  echo -n "$@"
   output_style_reset
 }
 
@@ -31,7 +31,7 @@ function echo_n_dim {
 # Prints a header line into the terminal.
 function echo_header {
   echo
-  echo_bold "$*"
+  echo_bold "$@"
 }
 
 
@@ -44,7 +44,7 @@ function echo_error_header {
 
 # Prints the provided error message
 function echo_error {
-  echo_red "$(echo_indented $*)"
+  echo_red "$(echo_indented "$@")"
 }
 
 
@@ -61,14 +61,14 @@ function echo_if_true {
 
 # Prints the message indented
 function echo_indented {
-  echo "$*" | indent
+  echo "$@" | indent
 }
 
 
 # Prints an inline usage
 function echo_inline_bold {
   output_style_bold
-  printf "%s" "$*"
+  printf "%s" "$@"
   output_style_reset
 }
 
@@ -94,7 +94,7 @@ function echo_inline_usage_or {
 # Outputs the given text in red
 function echo_red {
   output_style_red
-  echo $*
+  echo "$@"
   output_style_reset
 }
 
@@ -103,21 +103,21 @@ function echo_red {
 function echo_red_bold {
   output_style_bold
   output_style_red
-  echo $*
+  echo "$@"
   output_style_reset
 }
 
 function echo_n_red_bold {
   output_style_red
   output_style_bold
-  echo -n $*
+  echo -n "$@"
   output_style_reset
 }
 
 
 # Prints the provided usage message
 function echo_usage {
-  echo_indented "$*"
+  echo_indented "$@"
 }
 
 
