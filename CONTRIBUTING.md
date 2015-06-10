@@ -165,7 +165,7 @@ The feature branch `feature1` is cut directly from `master`.
 The other feature branch (`feature2`) is cut from `feature1`.
 
 Git Town stores the information about this setup in the Git configuration for the repo.
-Two types of keys are used for this. The first one is `git-town.branches.parent`
+Two types of keys are used for this. The first one is `git-town.branches.parent`:
 * `git-town.branches.parent.feature1=master`
 * `git-town.branches.parent.feature2=feature1`
 It lists which branch is the immediate parent branch of the given branch.
