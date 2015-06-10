@@ -178,10 +178,10 @@ This "ancestry line" of branches is preserved at all times,
 and impacts a lot of Git Town's commands.
 For example, child branches cannot be shipped before their parents.
 When syncing, Git Town syncs the parent branch first,
-then then merges the parent branch into its children branches.
+then merges the parent branch into its children branches.
 When creating a pull request for `feature2`,
 Git Town only displays the changes between `feature2` and `feature1`,
-not the changes to `master`.
+not the diff against `master`.
 
 Git Town stores the information about this setup in the Git configuration for the repo.
 Two types of keys are used for this. The first one is __git-town.branches.parent__.
