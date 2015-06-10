@@ -151,7 +151,8 @@ the appropriate driver for the current environment and runs it.
 Since code reviews can take a while,
 many developers work on several features in parallel.
 These features often depend on each other.
-To support this common use case, Git Town provides a hierarchical branching model.
+To support this common use case, Git Town provides an hierarchical branching model
+that is more opinionated than the very generic branching of vanilla Git.
 In Git Town's world, feature branches can be "children" of other feature branches.
 
 As an example, lets assume a repo with the following setup:
