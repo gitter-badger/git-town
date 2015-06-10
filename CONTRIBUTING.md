@@ -194,8 +194,8 @@ git-town.branches.parent.feature2=feature1
 Git Town also caches the full ancestral line of each feature branch, top-down,
 in a key called __git-town.branches.parents__:
 * `git-town.branches.parents.feature2=master,feature1`
-Here we list that in order to sync `feature2`, we need to first sync `master`,
-and then `feature1` with `master` as the parent.
+  lists that in order to sync `feature2`, we need to first sync `master`,
+  and then `feature1` with `master` as the parent.
 
 
 ## Documentation
