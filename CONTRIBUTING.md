@@ -148,11 +148,13 @@ the appropriate driver for the current environment and runs it.
 
 ### Branch Hierarchy Architecture
 
-Git Town has its own, more opinionated model of branches than vanilla Git.
+Since code reviews can take a while,
+many developers work on several features in parallel.
+These features often depend on each other.
+To support this common use case, Git Town provides a hierarchical branching model.
 In Git Town's world, feature branches can be "children" of other feature branches.
-In order to sync and ship branches in the right order and according to their dependencies,
-Git Town needs to know information about the branch hierarchy.
-Lets assume a repo has the following setup:
+
+As an example, lets assume a repo with the following setup:
 
 ```
 -o--o-- master
@@ -162,16 +164,32 @@ Lets assume a repo has the following setup:
         o-- feature2
 ```
 
+In this example, feature 1 is currently under review.
+While waiting for that to finish, the developer has started to work on feature 2.
+Feature 2 needs some of the changes that are introduced by feature 1.
+Since feature 1 hasn't shipped yet, we can't cut feature 2 straight off master,
+but must cut it off feature 1, so that `feature2` sees the changes made by `feature1`.
+This means `feature2` is a child branch of `feature1`.
 The feature branch `feature1` is cut directly from `master`.
 The other feature branch (`feature2`) is cut from `feature1`.
 
+This "ancestry line" of branches is preserved at all times,
+and impacts a lot of Git Town's commands.
+For example, child branches cannot be shipped before their parents.
+When syncing, Git Town syncs the parent branch first,
+then then merges the parent branch into its children branches.
+When creating a pull request for `feature2`,
+Git Town only displays the changes between `feature2` and `feature1`,
+not the changes to `master`.
+
 Git Town stores the information about this setup in the Git configuration for the repo.
-Two types of keys are used for this. The first one is `git-town.branches.parent`.
+Two types of keys are used for this. The first one is __git-town.branches.parent__.
 It lists which branch is the immediate parent branch of the given branch.
 * `git-town.branches.parent.feature1=master`
 * `git-town.branches.parent.feature2=feature1`
 
-Git Town also caches the full ancestral line of each feature branch, top-down:
+Git Town also caches the full ancestral line of each feature branch, top-down,
+in a key called __git-town.branches.parents__:
 * `git-town.branches.parents.feature2=master,feature1`
 Here we list that in order to sync `feature2`, we need to first sync `master`,
 and then `feature1` with `master` as the parent.
