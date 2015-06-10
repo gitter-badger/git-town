@@ -151,8 +151,6 @@ the appropriate driver for the current environment and runs it.
 Feature branches can be children of other feature branches.
 In order to sync and ship branches in the right order and according to their dependencies,
 Git Town needs to know information about the branch hierarchy.
-This information is stored in the Git configuration for the current repo.
-
 Lets assume a repo has this setup:
 
 ```
@@ -163,6 +161,7 @@ Lets assume a repo has this setup:
         o-- feature2
 ```
 
+This information is stored in the Git configuration for the current repo.
 Git Town stores two types of keys in the Git config. The first key is `git-town.branches.parent`
 * `git-town.branches.parent.feature2=feature1`
 * `git-town.branches.parent.feature1=master`
