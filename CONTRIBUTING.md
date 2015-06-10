@@ -148,7 +148,8 @@ the appropriate driver for the current environment and runs it.
 
 ### Branch Hierarchy Architecture
 
-Feature branches can be children of other feature branches.
+Git Town has its own, more opinionated model of branches than vanilla Git.
+In Git Town's world, feature branches can be "children" of other feature branches.
 In order to sync and ship branches in the right order and according to their dependencies,
 Git Town needs to know information about the branch hierarchy.
 Lets assume a repo has the following setup:
